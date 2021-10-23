@@ -1,5 +1,5 @@
-const tap = require('tap');
-const { findEntries } = require('../lib/microformat/dom');
+import tap from 'tap';
+import { findEntries } from '../lib/microformat/dom.js';
 
 const fixture = {
   items: [
@@ -7,20 +7,21 @@ const fixture = {
       type: ['h-entry'],
       properties: {
         name: [
-          'Indie Map is a public IndieWeb social graph and dataset.\n\n\n\n2300 sites, 5.7M pages, 380GB HTML with microformats2.\nSocial graph API and interactive map: 631M links, 706K relationships.\nSQL queryable dataset, stats, raw crawl data.\n\n\nLearn more ➜',
-        ],
-      },
-    },
+          // eslint-disable-next-line max-len
+          ['Indie Map is a public IndieWeb social graph and dataset.\n\n\n\n2300 sites, 5.7M pages, 380GB HTML with microformats2.\nSocial graph API and interactive map: 631M links, 706K relationships.\nSQL queryable dataset, stats, raw crawl data.\n\n\nLearn more ➜']
+        ]
+      }
+    }
   ],
   rels: {
-    stylesheet: ['style.css'],
+    stylesheet: ['style.css']
   },
   'rel-urls': {
     'style.css': {
       type: 'text/css',
-      rels: ['stylesheet'],
-    },
-  },
+      rels: ['stylesheet']
+    }
+  }
 };
 
 tap.test('empty h-entry', t => {

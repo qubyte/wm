@@ -1,5 +1,5 @@
-const tap = require('tap');
-const request = require('../lib/request');
+import tap from 'tap';
+import request from '../lib/request.js';
 
 tap.test('request a duff domain', t => {
   t.plan(1);
@@ -9,7 +9,7 @@ tap.test('request a duff domain', t => {
     .then(() => {
       t.fail('should not resolve');
     })
-    .catch(e => {
+    .catch(() => {
       t.ok(Date.now() - now < timeout + 1000);
     });
 });

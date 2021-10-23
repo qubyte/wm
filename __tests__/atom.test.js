@@ -1,8 +1,10 @@
-const tap = require('tap');
-const fs = require('fs');
-const read = f => fs.readFileSync(__dirname + f, 'utf8');
-const parse = require('../lib/rss/dom');
-const { links } = require('../lib/links');
+import tap from 'tap';
+import fs from 'fs';
+import parse from '../lib/rss/dom.js';
+import { links } from '../lib/links.js';
+
+// eslint-disable-next-line no-sync
+const read = f => fs.readFileSync(new URL(f, import.meta.url), 'utf8');
 
 tap.test('compile dom for atom', async t => {
   t.plan(1);
