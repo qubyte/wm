@@ -1,7 +1,9 @@
-const tap = require('tap');
-const fs = require('fs');
-const Webmention = require('../lib/webmention');
-const read = f => fs.readFileSync(__dirname + f, 'utf8');
+import tap from 'tap';
+import fs from 'fs';
+import Webmention from '../lib/webmention.js';
+
+// eslint-disable-next-line no-sync
+const read = f => fs.readFileSync(new URL(f, import.meta.url), 'utf8');
 
 tap.test('atom', t => {
   t.plan(1);
